@@ -8,3 +8,21 @@ Simply edit `VERSION` in `Dockerfile`, then build and push to update.
 ```
 docker buildx build --platform linux/amd64 -t <your-space>/s3cmd:latest --push .
 ```
+
+To run in K8s cluster
+
+```
+kubectl run s3cmd --image robbash/s3cmd -- tail -f /dev/null
+```
+
+Connect
+
+```
+kubectl exec s3cmd -it -- sh
+```
+
+Configure s3cmd
+
+```
+s3cmd --configure
+```
